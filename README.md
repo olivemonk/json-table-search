@@ -6,7 +6,7 @@ This project is a web app that parses vehicle data from a JSON file and shows it
 
 ## Features
 
-- Users can search vehicles by name, model, type, or manufacturer, supporting both simple queries (e.g., `Sedan`) and advanced key-value queries (e.g., `model:2020 manufacturer:ford`).
+- Users can search vehicles by name, model, type, or manufacturer, supporting both simple queries (e.g., `sedan`) and advanced key-value queries (e.g., `manufacturer:ford type:sedan`).
 - Displays data in a responsive, paginated table with sortable columns for easy navigation of large datasets.
 - Global state management is handled using Redux, with efficient search and pagination logic.
 - Built with Ant Design v5 for a modern UI, utilizing CSS-in-JS for automatic styling without manual CSS imports.
