@@ -2,9 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.custom-ant-table {
-    .ant-table-thead > tr > th {
-        background-color: #005bd2;
-        color: #fff;
-    }
-}

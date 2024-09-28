@@ -1,4 +1,4 @@
-import { Table, Tooltip, TablePaginationConfig } from 'antd';
+import { Table, Tooltip, TablePaginationConfig, Row, Col } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { setPage, setPageSize } from '../../features/vehicle-slice';
@@ -38,26 +38,32 @@ const VehicleTable = () => {
             title: 'Vehicle Name',
             dataIndex: 'Name',
             key: 'name',
+            sorter: (a: Vehicle, b: Vehicle) => a.Name.localeCompare(b.Name),
         },
         {
             title: 'Model',
             dataIndex: 'Model',
             key: 'model',
+            sorter: (a: Vehicle, b: Vehicle) => a.Model.localeCompare(b.Model),
         },
         {
             title: 'Type',
             dataIndex: 'Type',
             key: 'type',
+            sorter: (a: Vehicle, b: Vehicle) => a.Type.localeCompare(b.Type),
         },
         {
             title: 'Manufacturer',
             dataIndex: 'Manufacturer',
             key: 'manufacturer',
+            sorter: (a: Vehicle, b: Vehicle) =>
+                a.Manufacturer.localeCompare(b.Manufacturer),
         },
         {
             title: 'Seating',
             dataIndex: 'Seating',
             key: 'seating',
+            sorter: (a: Vehicle, b: Vehicle) => a.Seating - b.Seating,
             render: (seating: number) => (
                 <Tooltip title={`${seating} seats`}>{seating}</Tooltip>
             ),
@@ -65,27 +71,28 @@ const VehicleTable = () => {
     ];
 
     return (
-        <div className="overflow-x-auto bg-blue-300 p-4 rounded-lg">
-            <Table
-                columns={columns}
-                dataSource={filteredData.slice(
-                    (currentPage - 1) * pageSize,
-                    currentPage * pageSize
-                )}
-                loading={loading}
-                pagination={{
-                    current: currentPage,
-                    pageSize: pageSize,
-                    total: filteredData.length,
-                }}
-                onChange={onTableChange}
-                rowKey={(record) =>
-                    `${record.Name}-${record.Model}-${record.Manufacturer}`
-                }
-                scroll={{ x: true }}
-                className="custom-ant-table bg-blue-300 rounded-lg text-white px-3 pt-3"
-            />
-        </div>
+        <Row justify="center" style={{ padding: '10px' }}>
+            <Col span={24}>
+                <Table
+                    columns={columns}
+                    dataSource={filteredData.slice(
+                        (currentPage - 1) * pageSize,
+                        currentPage * pageSize
+                    )}
+                    loading={loading}
+                    pagination={{
+                        current: currentPage,
+                        pageSize: pageSize,
+                        total: filteredData.length,
+                    }}
+                    onChange={onTableChange}
+                    rowKey={(record) =>
+                        `${record.Name}-${record.Model}-${record.Manufacturer}`
+                    }
+                    scroll={{ x: true }}
+                />
+            </Col>
+        </Row>
     );
 };
 

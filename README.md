@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vehicle JSON Parser & Search Web Application
 
-## Getting Started
+### 🌐[Deployed link](https://json-table-search.vercel.app/)
 
-First, run the development server:
+This project is a web app that parses vehicle data from a JSON file and shows it in a searchable, paginated table. It has a responsive UI with advanced search features, allowing users to filter vehicles by name, model, type, manufacturer, etc.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Users can search vehicles by name, model, type, or manufacturer, supporting both simple queries (e.g., `Sedan`) and advanced key-value queries (e.g., `model:2020 manufacturer:ford`).
+- Displays data in a responsive, paginated table with sortable columns for easy navigation of large datasets.
+- Global state management is handled using Redux, with efficient search and pagination logic.
+- Built with Ant Design v5 for a modern UI, utilizing CSS-in-JS for automatic styling without manual CSS imports.
+- Developed using Next.js (v14+), leveraging server-side rendering and dynamic imports for optimized performance.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies Used
+- **Next.js**: React framework used for server-side rendering, static site generation, and routing.
+- **React**: Core library for building the UI, using hooks like useEffect and useState for component logic.
+- **Ant Design**: UI library providing components like Table, Layout, and Tooltip with built-in CSS-in-JS styling.
+- **TailwindCSS**:  Utility-first CSS framework used for quickly styling components with pre-defined classes.
+- **Redux Toolkit**: Manages global state for vehicle data, search, and pagination.
+- **TypeScript**: Provides strong typing to improve code maintainability and ensures type safety for vehicle data.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How to Run the Project
 
-## Learn More
+### Prerequisites:
+- **Node.js** and **npm** or **yarn** installed.
 
-To learn more about Next.js, take a look at the following resources:
+### Step-by-step instructions:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/olivemonk/json-table-search
+   cd vehicle-json-parser
+   ```
+2. Install dependencies:
+    ```bash
+   npm install
+   ```
+3. Run the development server:
+    ```bash
+   npm run dev
+   ```
+Open your browser and navigate to http://localhost:3000 to view the application.

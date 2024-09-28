@@ -13,7 +13,7 @@ const SearchBar = () => {
         <Input.Search
             placeholder="Search vehicles by Name, Model, Type, or use 'field:value' syntax"
             onChange={handleSearch}
-            style={{ marginBottom: 20 }}
+            style={{ padding: '10px' }}
         />
     );
 };

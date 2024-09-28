@@ -5,8 +5,10 @@ import { useDispatch } from 'react-redux';
 import { setVehicles } from '../../features/vehicle-slice';
 import VehicleTable from './vehicle-table';
 import SearchBar from './search-bar';
-import { Spin } from 'antd';
+import { Spin, Layout, Row, Col } from 'antd';
 import { Vehicle } from '@/types/vehicle';
+
+const { Content } = Layout;
 
 type VehiclePageProps = {
     vehicleData: Vehicle[];
@@ -18,27 +20,33 @@ const VehiclePage = ({ vehicleData }: VehiclePageProps) => {
 
     useEffect(() => {
         setLoading(true);
-        setTimeout(() => {
-            dispatch(setVehicles(vehicleData));
-            setLoading(false);
-        }, 1000);
+        dispatch(setVehicles(vehicleData));
+        setLoading(false);
     }, [dispatch, vehicleData]);
 
     if (loading) {
         return (
-            <div className="flex justify-center items-center min-h-screen">
+            <Row justify="center" align="middle" style={{ minHeight: '100vh' }}>
                 <Spin size="large" />
-            </div>
+            </Row>
         );
     }
 
     return (
-        <>
-            <SearchBar />
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <VehicleTable />
-            </div>
-        </>
+        <Layout style={{ backgroundColor: '#bdc7d6', borderRadius: "8px" }}>
+            <Content style={{ padding: '10px'}}>
+                <Row justify="center">
+                    <Col span={24}>
+                        <SearchBar />
+                    </Col>
+                </Row>
+                <Row justify="center">
+                    <Col span={24}>
+                        <VehicleTable />
+                    </Col>
+                </Row>
+            </Content>
+        </Layout>
     );
 };
 
